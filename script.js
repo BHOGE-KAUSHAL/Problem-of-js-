@@ -1,52 +1,81 @@
-// Level 1 Problems on js 
-//1. print number from 1 to 10 .
-//hint-loop from 1 to 10 and print each other
+// Level -1 practice of js 
+// 7.ask user age and check if eligible to vote .
+//   If age >=18 -> "Eligible ",else ->"not Eligible" 
 
-// for(i=1;i<11;i++){
-// console.log(i);
+// let age = prompt("user ki age batao");
+// if (age === null ){
+//     console.error("you cancelled it .");    
+// }else {
+//     if(age.trim() === ""){
+//         console.error("please write something...");
+//     }else{
+//         age = Number(age);
+//         if (isNaN(age)){
+//             console.error("please enter the number ...");
+//         }else{
+//             if(age<0)console.error("put correct age");
+//             else if(age >= 18) console.log("You can vote");
+//             else console.log("you can't vote");
+//         }  
+//     }
 // }
 
-//2. print only even number from 1 to 20 
-// use a loop and conditional to print only even ones. 
-
-for(i=1;i<21;i++){
-    if(i%2 ===0){
-        console.log(i);
-    }
+// 8. print multiplication table of 5 
+// use loop to print 5 x 1 to 5 x 10 .
+for (let i=0 ;i<11; i++){
+    console.log(`5 x ${i} = ${5*i}`);
 }
 
-//3. print number from 10 to 1 .
-//reverse loop with a decrement
+// 9. count how many number between 1 and 15 greater than 8 
+// loop and count conditionally
+let count = null;
+for (let i=1 ; i < 15 ;i++){
+    if (i > 8 ) {
+        ++count;
+    }
+}
+console.log(`total count is ${count}`);
 
-// for (i=10;i>0;i--){
-//     console.log(i);
+// 10. ask user for password and print access status hardcoded correct password. compare with user input
+
+// let password = "spiderman";
+// let pass = prompt("password bataio");
+// if (pass === null){
+//     console.error("you cancelled it ");
+// }else {
+//     if(pass === password){
+//         console.log("matched");
+//     }else{
+//         console.log("not matched");
+//     }
 // }
 
-//4. print the word "yes " 5 times .
-//repeat using a loop 
+// Level 2 - slightly tougher but logical 
+// 11. allow only 3 attemps to enter correct password if user gets its right early ,stop. if not -> "Account Locked"  
+// hint- pahla prompt ,galat ->doosra prompt ||| sahi hau -> stop hojayegaa, doosra prompt bhigalat -> 3 prompt -> account locked .     
+// while loops pattern - 
 
-for(let j=0;j<5; j++ ){
-    console.log("yes");
-}
+//start
+//while(end){
+// ... /// your. code
+//change
+//} 
 
-//5. print whether number from 1 to 10 are even or odd .
-// for each number ,check:even -> "Even", else->"odd" 
+let attemps = 0;
+let unlocked = false;
+let pass = "kaushal";
 
-for(k=1;k<11;k++){
-    if(k % 2 ===0){
-        console.log(`${k} Even`);
-    }else{
-        console.log(`${k} Odd`);
+let password =prompt("password - kaushal");
+attemps++;
+
+if (password === pass) unlocked = true;
+while(password !== pass){
+    if (attemps === 3){
+        console.error("Account locked");
+        break;
     }
+    password =prompt ("password batao");
+    if (password === pass) unlocked =true;
+    attemps++;
 }
-
-// 6. ask user for a number say if it's positive or negative.
-// use prompt and conditional 
-// convert string into number // number(),parseInt(),+
-
-let num = +prompt("number batao");
-if (num >= 0){
-    console.log("positive");
-}else{
-    console.log("negative");
-}
+if (unlocked === true) console.log("account opened ");
